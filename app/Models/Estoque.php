@@ -2,15 +2,17 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use App\Models\Produto;
+use Illuminate\Database\Eloquent\Model;
+use Prettus\Repository\Contracts\Transformable;
+use Prettus\Repository\Traits\TransformableTrait;
 
-class Estoque extends Authenticatable
+class Estoque extends Model implements Transformable
 {
-    use HasFactory, Notifiable;
+    use TransformableTrait;
+    
+    protected $table = "tables.Estoque";
+
+    protected $primaryKey = "idEstoque";
 
     /**
      * The attributes that are mass assignable.
@@ -19,24 +21,10 @@ class Estoque extends Authenticatable
      */
     protected $fillable = [
         'idEstoque',
+        'idGerente'
     ];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
-
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    function Gerente() {
+        return $this->hasOne(Usuario::class, 'idUsuario', 'idGerente');
+    }
 }

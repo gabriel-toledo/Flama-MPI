@@ -13,6 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/', 'HomeController@index')->name('home');
+
+Route::get('/produto/{idProduto}', 'ProdutoController@getProduto')->name('produto.show');
+
+Route::post('/produto/{idProduto}', 'ProdutoController@adicionarProduto')->name('produto.adicionarProduto');
+
+Route::get('/perfil', 'UsuarioController@getUsuario')->name('usuario.show');
+
+Route::get('/carrinho/{idCarrinho}', 'CarrinhoController@getCarrinho')->name('carrinho.show');
+
+Route::get('/estoque/{idEstoque}', 'EstoqueController@getEstoque')->name('estoque.show');
+

@@ -1,14 +1,14 @@
 <?php
 
-namespace app\Interfaces;
+namespace App\Interfaces;
 
 use Prettus\Repository\Contracts\RepositoryInterface;
 
 /**
  * Interface IFuncionarioRepository
- * @package namespace Modules\RecursosHumanos\Interfaces;
+ * @package namespace App\Interfaces;
  */
-interface IEstoqueRepository
+interface IEstoqueRepository extends RepositoryInterface
 {
     function createEstoque();
     function consultarEstoque();

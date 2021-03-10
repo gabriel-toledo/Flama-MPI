@@ -2,14 +2,21 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Model;
+use Prettus\Repository\Contracts\Transformable;
+use Prettus\Repository\Traits\TransformableTrait;
+use App\Models\Estoque;
+use App\Models\Carrinho;
 
-class Produto extends Authenticatable
+class Produto extends Model implements Transformable
 {
-    use HasFactory, Notifiable;
+    use TransformableTrait;
+
+    protected $table = "tables.Produto";
+
+    protected $primaryKey = "idProduto";
+
+    public $incrementing = true;
 
     /**
      * The attributes that are mass assignable.
@@ -17,28 +24,20 @@ class Produto extends Authenticatable
      * @var array
      */
     protected $fillable = [
+        'idProduto',
         'nomeProduto',
         'quantProduto',
         'preco',
         'descricao',
+        'idEstoque',
+        'idCarrinho'
     ];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
+    function Estoque(){
+        return $this->hasOne(Estoque::class, 'idEstoque', 'idEstoque');
+    }
 
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    function Carrinho(){
+        return $this->hasOne(Carrinho::class, 'idCarrinho', 'idCarrinho');
+    }
 }

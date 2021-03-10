@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Interfaces;
+namespace App\Interfaces;
 
 use Prettus\Repository\Contracts\RepositoryInterface;
 
@@ -8,7 +8,7 @@ use Prettus\Repository\Contracts\RepositoryInterface;
  * Interface IFuncionarioRepository
  * @package namespace Modules\RecursosHumanos\Interfaces;
  */
-interface IUsuarioRepository
+interface IUsuarioRepository extends RepositoryInterface
 {
     function setNome($nome);
     function getNome();

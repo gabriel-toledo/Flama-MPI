@@ -2,15 +2,14 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use app\Models\Estoque;
+use Illuminate\Database\Eloquent\Model;
+use App\Models\Estoque;
+use Prettus\Repository\Contracts\Transformable;
+use Prettus\Repository\Traits\TransformableTrait;
 
-class Gerente extends Usuario
+class Gerente extends Model implements Transformable
 {
-    use HasFactory, Notifiable;
+    use TransformableTrait;
 
     /**
      * The attributes that are mass assignable.
