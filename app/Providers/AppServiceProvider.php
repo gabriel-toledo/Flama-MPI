@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Interfaces\ICarrinhoProdutoRepository;
 use App\Interfaces\ICarrinhoRepository;
 use App\Repository\CarrinhoRepository;
 use App\Interfaces\IClienteRepository;
@@ -15,6 +16,7 @@ use App\Repository\PagamentoRepository;
 use App\Interfaces\IProdutoRepository;
 use App\Repository\ProdutoRepository;
 use App\Interfaces\IUsuarioRepository;
+use App\Repository\CarrinhoProdutoRepository;
 use App\Repository\UsuarioRepository;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Factory;
@@ -51,5 +53,6 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(IPagamentoRepository::class, PagamentoRepository::class);
         $this->app->bind(IProdutoRepository::class, ProdutoRepository::class);
         $this->app->bind(IUsuarioRepository::class, UsuarioRepository::class);
+        $this->app->bind(ICarrinhoProdutoRepository::class, CarrinhoProdutoRepository::class);
     }
 }

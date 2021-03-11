@@ -5,16 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Prettus\Repository\Contracts\Transformable;
 use Prettus\Repository\Traits\TransformableTrait;
+use App\Models\Produto;
 
-class Pagamento extends Model implements Transformable
+class CarrinhoProduto extends Model implements Transformable
 {
     use TransformableTrait;
 
     public $timestamps = false;
 
-    protected $table = "tables.Pagamento";
+    protected $table = "tables.CarrinhoProduto";
 
-    protected $primaryKey = "idPagamento";
+    protected $primaryKey = "idCarrinhoProduto";
 
     public $incrementing = true;
 
@@ -24,14 +25,18 @@ class Pagamento extends Model implements Transformable
      * @var array
      */
     protected $fillable = [
-        'idPagamento',
+        'idCarrinhoProduto',
         'idCarrinho',
-        'valor',
-        'formaPagamento',
+        'idProduto',
+        'nomeProduto',
+        'preco'
     ];
 
-    public function carrinho()
-    {
+    function carrinho() {
         return $this->hasOne(Carrinho::class, 'idCarrinho', 'idCarrinho');
+    }
+
+    function produto() {
+        return $this->hasOne(Produto::class, 'idProduto', 'idProduto');
     }
 }

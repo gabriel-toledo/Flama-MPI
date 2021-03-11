@@ -11,6 +11,15 @@ class Gerente extends Model implements Transformable
 {
     use TransformableTrait;
 
+    public $timestamps = false;
+    
+    protected $table = "tables.Gerente";
+
+    protected $primaryKey = "idGerente";
+
+    public $incrementing = true;
+    
+
     /**
      * The attributes that are mass assignable.
      *
@@ -22,24 +31,10 @@ class Gerente extends Model implements Transformable
         'idUsuario',
     ];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
-
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    public function usuario()
+    {
+        return $this->hasOne(Usuario::class, 'idUsuario', 'idUsuario');
+    }
 
     public function estoque()
     {

@@ -30,7 +30,7 @@
         </div>
     </header><br><br><br>
     <main>
-        <div class="card text-center">
+        <div class="card text-center" style="padding-top: 1em;">
             <div class="row">
                 <div class="col-md-4"><a href="/produto/1"><img src="\img\Extintor.png" alt="" style="width: 10px; min-width: 100px;"><p>Extintor</p></a></div>
                 <div class="col-md-4"><a href="/produto/2"><img src="\img\Alarme.png" alt="" style="width: 200px; min-width: 100px;"><p>Alarme</p></a></div>
@@ -42,11 +42,11 @@
                 <div class="col-md-4"><a href="/produto/6"><img src="\img\Hidrante.png" alt="" style="width: 200px; min-width: 100px;"><p>Hidrante</p></a></div>
             </div>
             <div class="row">
-                <div class="col-md-4"><a href="/produto/7"><img src="\img\Iluminacao de Emergência.png" alt="" style="width: 10px; min-width: 100px;"><p>Iluminação de Emergência</p></a></div>
+                <div class="col-md-4"><a href="/produto/7"><img src="\img\Iluminação de Emergência.png" alt="" style="width: 10px; min-width: 100px;"><p>Iluminação de Emergência</p></a></div>
                 <div class="col-md-4"><a href="/produto/8"><img src="\img\Mangueira.png" alt="" style="width: 10px; min-width: 100px;"><p>Mangueira</p></a></div>
-                <div class="col-md-4"><a href="/produto/9"><img src="\img\Materiais Hidráulicos.png" alt="" style="width: 10px; min-width: 100px;"><p>Materiais Hidráulicos</p></a></div>
+                <div class="col-md-4"><a href="/produto/9"><img src="\img\Conexão Hidráulica de Alta Pressão.png" alt="" style="width: 10px; min-width: 100px;"><p>Conexão Hidráulica de Alta Pressão</p></a></div>
             </div>
     </main>
-    <footer style="height: 20px; position: absolute; bottom: 0; left: 0; right: 0; background: #eee;">Flama Materiais de Prevenção de Incêndio</footer>
+    <footer style="padding-top:10px; padding-bottom:0px; background-attachment: scroll; position:fixed!; width:100%; bottom: 0; left: 0; right: 0; background: #eee;">Flama Materiais de Prevenção de Incêndio</footer>
 </body>
 </html>

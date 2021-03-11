@@ -20,8 +20,14 @@ class CarrinhoController extends Controller
 
     public function getCarrinho($idCarrinho)
     {
-        $carrinho = $this->carrinhoRepository->find($idCarrinho)->with('produtos');
-        return view('carrinho.carrinho', compact('carrinho'));
+        $carrinho = $this->carrinhoRepository->find($idCarrinho)->with('produtos')->first();
+        for($i=0; $i <= 9; $i++)
+            $produtos[] = 0;
+        foreach($carrinho->produtos as $produto) 
+            $produtos[$produto->idProduto] = array(['quantidade' => 0, 'nome' => $produto->nomeProduto, 'preco' => $produto->preco]);
+        foreach($carrinho->produtos as $produto) 
+            $produtos[$produto->idProduto][0]['quantidade'] += 1;
+        return view('carrinho.carrinho', compact(['carrinho', 'produtos']));
     }
 
     public function editarCarrinho ($idCarrinho)

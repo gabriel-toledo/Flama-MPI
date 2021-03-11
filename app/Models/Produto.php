@@ -12,6 +12,8 @@ class Produto extends Model implements Transformable
 {
     use TransformableTrait;
 
+    public $timestamps = false;
+
     protected $table = "tables.Produto";
 
     protected $primaryKey = "idProduto";
@@ -30,14 +32,9 @@ class Produto extends Model implements Transformable
         'preco',
         'descricao',
         'idEstoque',
-        'idCarrinho'
     ];
 
-    function Estoque(){
+    function estoque(){
         return $this->hasOne(Estoque::class, 'idEstoque', 'idEstoque');
-    }
-
-    function Carrinho(){
-        return $this->hasOne(Carrinho::class, 'idCarrinho', 'idCarrinho');
     }
 }

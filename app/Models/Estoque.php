@@ -9,10 +9,14 @@ use Prettus\Repository\Traits\TransformableTrait;
 class Estoque extends Model implements Transformable
 {
     use TransformableTrait;
+
+    public $timestamps = false;
     
     protected $table = "tables.Estoque";
 
     protected $primaryKey = "idEstoque";
+
+    public $incrementing = true;
 
     /**
      * The attributes that are mass assignable.
@@ -24,7 +28,7 @@ class Estoque extends Model implements Transformable
         'idGerente'
     ];
 
-    function Gerente() {
+    function gerente() {
         return $this->hasOne(Usuario::class, 'idUsuario', 'idGerente');
     }
 }
